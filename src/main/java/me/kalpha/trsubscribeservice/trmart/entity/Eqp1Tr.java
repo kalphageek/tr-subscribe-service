@@ -13,12 +13,14 @@ import org.springframework.data.domain.Persistable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 @Entity
+@Table(name = "eqp1Tr")
 @NoArgsConstructor
 @Getter @Setter
 @ToString(of = {"id","name","value","eventTime"})
