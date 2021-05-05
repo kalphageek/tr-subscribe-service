@@ -1,0 +1,58 @@
+spring:
+  profiles: prd
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    hikari:
+      password: pgadmin
+      username: pgadmin
+      jdbc-url: jdbc:postgresql://db.deogi:5432/catalog
+      driver-class-name: org.postgresql.Driver
+#      hikari:
+#        initialization-fail-timeout: 1000000 # 서버가 가동시간을 기다리기 위해 설정
+#        maximum-pool-size: 5
+#        minimul-idle: 1
+  kafka:
+    bootstrap-servers: broker.deogi:9092
+    consumer:
+      auto-offset-reset: latest #earliest #Test for, Default latest #offset에 오류가 있는 경우 처리방법. latest: 이전 거 무시
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      group-id: tr-subscribe-service
+      properties:
+        "spring.json.trusted.packages": "*"
+        "enable.auto.commit": false
+        "fetch.min.bytes": 65536 #64KB, Default 1
+        #"max-poll-records": 1000 #한번에 가져오는 record 갯수.
+        #"security.protocol": "SASL_PLAINTEXT"
+        #"sasl.mechanism": "GSSAPI"
+        #"sasl.kerberos.service.name": "<kerberos service name>"
+        #"sasl.jaas.config": "com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true storeKey=true keyTab=\"<keytab file path>\" principal=\"<principal>\";"
+
+catalog:
+  datasource:
+    hikari:
+      password: pgadmin
+      username: pgadmin
+      jdbc-url: jdbc:postgresql://db.deogi:5432/catalog
+      driver-class-name: org.postgresql.Driver
+  #      platform: primary # 초기 데이터 입력을 위한 insert sql - /resources/data-primary.sql
+  #      hikari:
+  #        maximum-pool-size: 5
+  #        minimul-idle: 1
+
+app:
+  topic:
+    name: eqp.tr.ic.eqp1
+
+logging.level:
+  org.hibernate:
+    SQL: debug
+    type: trace
