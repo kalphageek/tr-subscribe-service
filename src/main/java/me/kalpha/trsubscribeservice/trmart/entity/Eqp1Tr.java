@@ -20,7 +20,7 @@ import java.util.List;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 @Entity
-@Table(name = "eqp1Tr")
+@Table(name = "eqp1tr")
 @NoArgsConstructor
 @Getter @Setter
 @ToString(of = {"id","name","value","eventTime"})
