@@ -6,12 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@EntityListeners(AuditingEntityListener.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 @Entity
 @Table(name = "eqp1trdet")
@@ -28,8 +31,8 @@ public class Eqp1TrDet implements Persistable<Long> {
     @JoinColumn(name = "tr_id")
     private Eqp1Tr eqp1Tr;
 
-    @CreatedDate
     private LocalDateTime createdDate;
+    @CreatedBy
     private String createdBy;
 
     public void assignEqp1Tr(Eqp1Tr eqp1Tr) {
