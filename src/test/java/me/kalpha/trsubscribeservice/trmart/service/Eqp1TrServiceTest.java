@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ActiveProfiles("test")
 class Eqp1TrServiceTest {
     @Autowired
     Eqp1TrService eqp1TrService;

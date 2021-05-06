@@ -8,7 +8,6 @@ import org.springframework.test.context.ActiveProfiles;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-@ActiveProfiles("test")
 @SpringBootTest
 class TrSubscribeServiceApplicationTests {
 	@Autowired
