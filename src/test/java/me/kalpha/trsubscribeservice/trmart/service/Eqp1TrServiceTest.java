@@ -26,6 +26,7 @@ class Eqp1TrServiceTest {
 
         Eqp1Tr eqp1Tr = eqp1TrService.createTr(eqp1TrDto);
 
+        assertTrue(eqp1Tr.getCreatedDate() != null);
         assertTrue(eqp1Tr.getEqp1TrDets().stream().count() == 2);
     }
 

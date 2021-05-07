@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Table(name = "eqp1trdet")
 @Getter @Setter
 @NoArgsConstructor
-@ToString(of = {"id","col1","col2"})
+@ToString(of = {"id","col1","col2", "createdDate", "createdBy"})
 public class Eqp1TrDet implements Persistable<Long> {
     @Id
     private Long id;

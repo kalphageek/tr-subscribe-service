@@ -23,7 +23,7 @@ import java.util.List;
 @Table(name = "eqp1tr")
 @NoArgsConstructor
 @Getter @Setter
-@ToString(of = {"id","name","value","eventTime"})
+@ToString(of = {"id","name","value","eventTime", "createdDate", "createdBy"})
 public class Eqp1Tr implements Persistable<Long> {
     @Id
     private Long id;
