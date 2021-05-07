@@ -17,7 +17,8 @@ then
   echo "> there is no running process."
 else
   echo "> kill -9 $CURRENT_PID"
-  kill -9 $CURRENT_PID | sleep 10
+  kill -9 $CURRENT_PID
+  sleep 10
 fi
 echo "> deploy new version."
-nohup java -jar $JAR_NAME &
+java -jar $JAR_NAME &
