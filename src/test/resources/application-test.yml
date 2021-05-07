@@ -9,12 +9,10 @@ spring:
         format_sql: true
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    hikari:
-      password: sa
-      username:
-      jdbc-url: jdbc:h2:mem://localhost/~/trmartdb
-#      url: jdbc:h2:mem://localhost/~/trmartdb
-      driver-class-name: org.h2.Driver
+    password: sa
+    username:
+    url: jdbc:h2:mem://localhost/~/trmartdb
+    driver-class-name: org.h2.Driver
   kafka:
     bootstrap-servers: broker.deogi:9092
     consumer:
@@ -34,11 +32,10 @@ spring:
 
 catalog:
   datasource:
-    hikari:
-      password: sa
-      username:
-      jdbc-url: jdbc:h2:mem://localhost/~/catalogdb
-      driver-class-name: org.h2.Driver
+    password: sa
+    username:
+    url: jdbc:h2:mem://localhost/~/catalogdb
+    driver-class-name: org.h2.Driver
 
 app:
   topic:
