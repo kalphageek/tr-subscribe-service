@@ -21,4 +21,4 @@ else
   sleep 10
 fi
 echo "> deploy new version."
-java -jar $JAR_NAME &
+nohup java -jar $JAR_NAME &
