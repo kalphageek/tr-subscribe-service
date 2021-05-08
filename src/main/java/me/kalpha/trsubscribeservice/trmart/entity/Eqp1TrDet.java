@@ -14,7 +14,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@EntityListeners(AuditingEntityListener.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 @Entity
 @Table(name = "eqp1trdet")
@@ -31,8 +30,9 @@ public class Eqp1TrDet implements Persistable<Long> {
     @JoinColumn(name = "tr_id")
     private Eqp1Tr eqp1Tr;
 
+    @Column(name = "created_date")
     private LocalDateTime createdDate;
-    @CreatedBy
+    @Column(name = "created_by")
     private String createdBy;
 
     public void assignEqp1Tr(Eqp1Tr eqp1Tr) {

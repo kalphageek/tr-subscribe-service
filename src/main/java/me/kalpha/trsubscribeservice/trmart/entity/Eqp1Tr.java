@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@EntityListeners(AuditingEntityListener.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 @Entity
 @Table(name = "eqp1tr")
@@ -30,9 +29,11 @@ public class Eqp1Tr implements Persistable<Long> {
 
     private String name;
     private Long value;
+    @Column(name = "event_time")
     private LocalDateTime eventTime;
+    @Column(name = "created_date")
     private LocalDateTime createdDate;
-    @CreatedBy
+    @Column(name = "created_by")
     private String createdBy;
 
     public List<Eqp1TrDet> getEqp1TrDets() {
